@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parameters</title>
+</head>
+<body>
+    <h1>URL Parameters</h1>
+    <form>
+        <label for="urlParams">URL Parameters:</label>
+        <textarea id="urlParams" rows="10" cols="50"></textarea>
+    </form>
+
+    <script>
+        function getUrlParameters() {
+            const params = new URLSearchParams(window.location.search);
+            let paramText = '';
+            params.forEach((value, key) => {
+                paramText += `${key}: ${value}\n`;
+            });
+            return paramText;
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const textArea = document.getElementById('urlParams');
+            textArea.value = getUrlParameters();
+        });
+    </script>
+</body>
+</html>
